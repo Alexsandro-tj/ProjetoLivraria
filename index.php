@@ -1,27 +1,9 @@
 <?php
+include_once"Livros.php";
 
-class Livros
+class Biblioteca 
 {
-    public string $titulo, $autor;
-    public int $ano, $isbn;
-    public bool $disponivel;
-
-
-
-    public function __construct(string $titulo, string $autor, int $ano, int $isbn)
-    {
-        $this->titulo = $titulo;
-        $this->autor = $autor;
-        $this->ano = $ano;
-        $this->isbn = $isbn;
-        $this->disponivel = true;
-    }
-}
-
-
-class Biblioteca /* extends Livros */
-{
-    private array $livros = [];
+    public array $livros = [];
 
 
     public function cadastrarLivro(Livros $l)
@@ -35,7 +17,7 @@ class Biblioteca /* extends Livros */
         }
     }
 
-    public function listarLivros()
+    public function getLivros()
     {
         foreach ($this->livros as $key) {
             echo "--------------------------<br>";
@@ -60,4 +42,4 @@ $newLivro2 = new Livros("Seja Feliz", "Torre de Vigia", "2025", 1001);
 $novoLivro = new Biblioteca();
 $novoLivro->cadastrarLivro($newLivro);
 $novoLivro->cadastrarLivro($newLivro2);
-$novoLivro->listarLivros();
+$novoLivro->getLivros();
